@@ -45,8 +45,8 @@ object Demo_function
   }
 
 
-  /*
-  high order function. Demo with a childFunction
+  /**
+   * 4.high order function. Demo with a childFunction
    */
   def childFunction(n: Int): Int =
   {
@@ -54,7 +54,7 @@ object Demo_function
   }
 
   /**
-    * high order function that defines a function as its input parameter
+    * 5.high order function that defines a function as its input parameter
     * @param f: a function as a parameter input
     * @param v: a normal parameter input
     * @return
@@ -63,7 +63,7 @@ object Demo_function
 
 
   /**
-    * functions can have inner functions
+    * 6.functions can have inner functions
     * @param a
     * @return
     */
@@ -78,10 +78,46 @@ object Demo_function
 
 
   /**
-  Anonymous function. To use "=>"
+   * 7.Anonymous function. To use "=>"
    */
   var mul = (x:Int, y:Int) => x * y
   println ( mul( 3 , 4 ) )
+
+
+  /**
+    * 8. Partial Application. To use "_"
+    */
+
+  def log(para1: String, para2: Int): Unit =
+  {
+    println(para1 + para2)
+  }
+
+  def demoPartialApp(): Unit =
+  {
+    val a : String = "this is:"
+    //use a new value to bound one parameter
+    val logWithPara1Bound = log(a, _ :Int)
+    logWithPara1Bound(1)
+    logWithPara1Bound(2)
+    logWithPara1Bound(3)
+  }
+
+    /**
+      * 9. Currying : take only one parameter once and yield a function with variable
+       * @param x
+      * @return
+      */
+  //Currying 1
+  def cat_1(s1:String)(s2:String) =
+      {
+          s1 + s2
+      }
+
+  def cat_2(s1:String) = (s2:String) => s1 + s2
+
+
+
 
 
 
@@ -97,6 +133,14 @@ object Demo_function
       var res4 = recursiveFunction( n = 4 )
       var res5 = highOrderFunction( childFunction, 9)
       var res6 = outerFunction(3)
-      println(res6)
+      demoPartialApp()
+
+      var res7 = cat_1("hei")("sup")
+      var res8 = cat_2("im")("OK")
+
+
+
+
+      println(res8)
     }
 }
