@@ -81,6 +81,7 @@ object Demo_function
    * 7.Anonymous function. To use "=>"
    */
   var mul = (x:Int, y:Int) => x * y
+
   println ( mul( 3 , 4 ) )
 
 
@@ -117,6 +118,14 @@ object Demo_function
   def cat_2(s1:String) = (s2:String) => s1 + s2
 
 
+  /**
+    *  a closure is a function that depends on variable outside the func
+    */
+  def closure_demo(): Unit =
+  {
+    var factor =3
+    val multiplier = (i:Int) => i * factor
+  }
 
 
 
